@@ -1,11 +1,11 @@
-import discord
-import os
-from dotenv import load_dotenv
 import httpx
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
 def generate(input):
+    
     response = httpx.post(
         url="https://api.groq.com/openai/v1/chat/completions", #endpoint, remember that the server expects specific data
         headers={
@@ -21,18 +21,4 @@ def generate(input):
     data = response.json()
     return data["choices"][0]["message"]["content"]
 
-
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print(f'Logged on as {self.user}!')
-
-    async def on_message(self, message):
-        if message.author == self.user: return
-
-        await message.channel.send(generate(message.content))
-
-intents = discord.Intents.default()
-intents.message_content = True
-
-client = MyClient(intents=intents)
-client.run(os.getenv("BOT_TOKEN"))
+print(generate("wassup"))
