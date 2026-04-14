@@ -1,0 +1,16 @@
+Goal: Make the bot be able to play music in vc
+
+Try experimenting with voice channels with discord.py again
+
+
+downloaded pynacl to match discord's encryption in vcs
+not only pynacl but also "davey" is needed?
+
+
+Must learn how to use the .play() method on voice clients
+
+the play() method needs an AudioSource obj
+
+how do we turn an mp3 into an AudioSource? : use ffmpeg
+
+goal: how tf do we fix ffmpeg
